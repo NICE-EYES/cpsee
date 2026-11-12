@@ -1,0 +1,17 @@
+# PyInstaller build output (rebuilt by build_exe.bat / CI)
+build/
+dist/
+*.exe
+*.spec
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+
+# Editors / OS
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini

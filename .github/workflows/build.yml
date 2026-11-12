@@ -1,0 +1,13 @@
+name: build-exe
+on: [push, workflow_dispatch]
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install pyinstaller -r requirements.txt
+      - run: pyinstaller --noconfirm --onefile --windowed --name PCSpecs --icon pcspecs.ico --add-data "pcspecs.ico;." pcspecs.py
+      - uses: actions/upload-artifact@v4
+        with: { name: PCSpecs-exe, path: dist/PCSpecs.exe }
